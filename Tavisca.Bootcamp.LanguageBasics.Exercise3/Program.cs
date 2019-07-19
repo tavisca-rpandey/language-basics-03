@@ -49,11 +49,12 @@ namespace Tavisca.Bootcamp.LanguageBasics.Exercise1
             for(int i=0;i< num_dishes;i++)
                 cal[i]= (protein[i]+carbs[i])*5 + fat[i]*9;
             
+            // Maxs returns the dishes with the max values in the given list(the dishes with a clash for the highest value)
             int[] hi_pro= Maxs(protein,num_dishes);
             int[] hi_fat= Maxs(fat,num_dishes);
             int[] hi_carb= Maxs(carbs,num_dishes);
             int[] hi_cal= Maxs(cal,num_dishes);
-
+            // Maxs returns the dishes with the min values in the given list(the dishes with a clash for the lowest value)
             int[] lo_pro= Mins(protein,num_dishes);
             int[] lo_fat= Mins(fat,num_dishes);
             int[] lo_carb= Mins(carbs,num_dishes);
@@ -64,12 +65,15 @@ namespace Tavisca.Bootcamp.LanguageBasics.Exercise1
             {
               
                 string diet = dietPlans[i];
+                // if no specificatioon is given for the diet, return the first meal.
+                
                 if(diet.Length==0)
                 {
                     res[i]=0;
                     continue;
                 }
                 
+                //Deciding the meal(s) according to the given the diet plan.
                 switch(diet[0])
                 {
                     case 'p': if(lo_pro.Length>1)
@@ -275,7 +279,8 @@ namespace Tavisca.Bootcamp.LanguageBasics.Exercise1
                 return indx[0];
        }
 
-               public static int[] Maxs(int[] arr, int lnth)
+        // Maxs returns the dishes with the max values in the given list(the dishes with a clash for the highest value)
+       public static int[] Maxs(int[] arr, int lnth)
        {
            int max = arr.Max();
            List<int> index = new List<int>();
